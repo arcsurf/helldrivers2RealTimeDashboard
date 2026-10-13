@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
@@ -9,9 +10,9 @@ import requests
 
 BASE_URL = "https://api.helldivers2.dev"
 HEADERS = {
-    # La API exige identificar al cliente; cámbialos si publicas la app.
-    "X-Super-Client": "hd2-dashboard-python",
-    "X-Super-Contact": "hd2-dashboard-local",
+    # La API exige identificar al cliente; se pueden sobrescribir con variables de entorno.
+    "X-Super-Client": os.environ.get("HD2_CLIENT", "helldrivers2RealTimeDashboard"),
+    "X-Super-Contact": os.environ.get("HD2_CONTACT", "https://github.com/arcsurf/helldrivers2RealTimeDashboard"),
     "Accept-Language": "es-ES",
 }
 

@@ -45,7 +45,13 @@ python app.py
 
 ## API
 
-Los datos provienen de `https://api.helldivers2.dev`. La API pide identificar al cliente mediante las cabeceras `X-Super-Client` y `X-Super-Contact` (definidas en `hd2_api.py`); si publicas o distribuyes la app, cámbialas por tus propios datos de contacto. Cada actualización realiza 3 peticiones, dentro del límite de 5 peticiones cada 10 segundos.
+Los datos provienen de `https://api.helldivers2.dev`. La API pide identificar al cliente mediante las cabeceras `X-Super-Client` y `X-Super-Contact`. Por defecto se envían el nombre y la URL de este repositorio; si haces un fork o distribuyes la app, define tus propios datos con las variables de entorno `HD2_CLIENT` y `HD2_CONTACT`:
+
+```bash
+HD2_CLIENT=mi-dashboard HD2_CONTACT=tu@email.com python app.py
+```
+
+Cada actualización realiza 3 peticiones, dentro del límite de 5 peticiones cada 10 segundos.
 
 ## Ramas
 
